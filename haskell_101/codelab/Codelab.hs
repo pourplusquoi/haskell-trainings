@@ -84,16 +84,16 @@ codelab = error "SOMETHING IS NOT IMPLEMENTED!"
 -}
 
 add :: Int -> Int -> Int
-add x y = codelab
+add x y = x + y
 
 subtract :: Int -> Int -> Int
-subtract x y = codelab
+subtract x y = x - y
 
 double :: Int -> Int
-double x = codelab
+double x = x * 2
 
 multiply :: Int -> Int -> Int
-multiply x y = codelab
+multiply x y = x * y
 
 -- Note that Haskell is strict about types even for basic integral
 -- types.  Int is never automatically converted to Double.  But you
@@ -101,7 +101,7 @@ multiply x y = codelab
 -- type.
 
 divide :: Int -> Int -> Double
-divide x y = codelab
+divide x y = x / (fromIntegral y)
 
 -- Remember that you can use if/then/else:
 --
@@ -110,7 +110,10 @@ divide x y = codelab
 -- Integer is just like Int, except that it can store arbitrary large numbers.
 
 factorial :: Integer -> Integer
-factorial n = codelab
+factorial n =
+  if n == 0
+    then 1
+    else n * (factorial $ n - 1)
 
 -- Expressions can be assigned names, called "bindings", using the following syntax:
 --
@@ -123,7 +126,10 @@ factorial n = codelab
 --   https://en.wikipedia.org/wiki/Greatest_common_divisor#Using_Euclid's_algorithm
 
 gcd :: Int -> Int -> Int
-gcd a b = codelab
+gcd a b =
+  if a == 0
+    then b
+    else gcd (b `mod` a) a
 
 
 
