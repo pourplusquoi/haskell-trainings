@@ -150,7 +150,7 @@ data Minutes = Minutes Int
 --     let v = a `div` b
 
 hours :: Minutes -> Int
-hours m = codelab
+hours (Minutes m) = m `div` 60
 
 -- In case you might need some mathematical functions, you can use
 --
@@ -162,7 +162,7 @@ hours m = codelab
 -- For example, for 15 and 25, distance is 10.
 
 timeDistance :: Minutes -> Minutes -> Minutes
-timeDistance m1 m2 = codelab
+timeDistance (Minutes m1) (Minutes m2) = Minutes $ m2 - m1
 
 type Point = (Int, Int)
 
